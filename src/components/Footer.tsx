@@ -44,15 +44,14 @@ const Footer = () => {
         
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4 sm:mb-0">
-            <a href="#home" className="text-gray-400 hover:text-white text-sm transition-colors">Home</a>
-            <a href="#about" className="text-gray-400 hover:text-white text-sm transition-colors">About</a>
+            <a href="#home" className="text-gray-400 hover:text-white text-sm transition-colors">About</a>
             <a href="#projects" className="text-gray-400 hover:text-white text-sm transition-colors">Projects</a>
             <a href="#skills" className="text-gray-400 hover:text-white text-sm transition-colors">Skills</a>
             <a href="#contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</a>
           </nav>
           
           <p className="text-gray-500 text-xs">
-            Designed & Built with React, Tailwind CSS and ❤️
+           Thank you ❤️ 
           </p>
         </div>
       </div>
@@ -61,3 +60,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
