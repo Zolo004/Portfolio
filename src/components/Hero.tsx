@@ -49,11 +49,11 @@ const Hero = () => {
             Zolo
           </h1>
 
-          <h2 className="text-2xl sm:text-3xl font-medium text-gray-200 mb-6 animate-fade-in [animation-delay:600ms] opacity-0">
+          <h2 className="text-2xl sm:text-3xl font-medium text-gray-100 mb-6 animate-fade-in [animation-delay:600ms] opacity-0">
             Full Stack Web Developer
           </h2>
 
-          <p className="max-w-xl text-gray-300 mb-8 animate-fade-in [animation-delay:800ms] opacity-0">
+          <p className="max-w-xl text-gray-100 mb-8 animate-fade-in [animation-delay:800ms] opacity-0">
             I build exceptional and accessible digital experiences for the web.
             Focused on creating clean, user-friendly applications with modern
             technologies.
