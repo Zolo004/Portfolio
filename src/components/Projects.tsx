@@ -1,9 +1,10 @@
-
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import * as THREE from 'three';
+import NET from 'vanta/dist/vanta.net.min';
 import { ArrowUpRight, Github, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+
+import "@/styles/bb.css";
 
 const projectsData = [
   {
@@ -12,8 +13,8 @@ const projectsData = [
     description: 'A full-stack e-commerce application with product catalog, user authentication, and payment processing.',
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=600',
     tags: ['React', 'Node.js', 'MongoDB', 'Stripe API'],
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: 'https://medium.com/@cosmingombos/building-a-modern-website-with-next-js-67cd338e84ab',
+    githubUrl: 'https://github.com/Zolo004/11_04',
     category: 'fullstack'
   },
   {
@@ -50,84 +51,112 @@ const projectsData = [
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
-  
-  const filteredProjects = filter === 'all' 
-    ? projectsData 
-    : projectsData.filter(project => project.category === filter);
-  
+  const vantaRef = useRef(null);
+  const vantaEffect = useRef(null);
+
+  useEffect(() => {
+    if (!vantaEffect.current) {
+      vantaEffect.current = NET({
+        el: vantaRef.current,
+        THREE: THREE,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: 0x338bb1,
+        backgroundColor: 0x09090f,
+        points: 10,
+        maxDistance: 20,
+        spacing: 15,
+        showDots: true,
+      });
+    }
+    return () => {
+      if (vantaEffect.current) vantaEffect.current.destroy();
+    };
+  }, []);
+
+  const filteredProjects =
+    filter === 'all'
+      ? projectsData
+      : projectsData.filter((project) => project.category === filter);
+
   return (
-    <section id="projects" className="py-20 bg-gray-50">
-      <div className="section-container">
-        <h2 className="section-title">My Projects</h2>
-        
+    <section id="projects" ref={vantaRef} className="py-20 relative min-h-screen">
+      <div className="section-container relative z-10">
+        <h2 className="section-title text-white text-4xl md:text-5xl font-bold">Projects</h2>
+
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-12 mt-8">
           {['all', 'frontend', 'backend', 'fullstack', 'mobile'].map((category) => (
-            <Button
+            <button
               key={category}
+              className={`ui-btn ${filter === category ? 'ring-2 ring-purple-500' : ''}`}
               onClick={() => setFilter(category)}
-              variant={filter === category ? "default" : "outline"}
-              className={`
-                ${filter === category ? 'bg-portfolio-blue text-white' : 'text-gray-600 hover:text-portfolio-blue'}
-                capitalize
-              `}
             >
-              {category}
-            </Button>
+              <span>{category}</span>
+            </button>
           ))}
         </div>
-        
+
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => (
-            <Card 
-              key={project.id} 
-              className="overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow opacity-0 animate-fade-in"
+            <article
+              key={project.id}
+              className="article-wrapper overflow-hidden animate-fade-in-up"
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+              <div className="container-project">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-64 object-cover rounded-t-md"
                 />
               </div>
-              <CardHeader>
-                <CardTitle className="flex justify-between items-center">
-                  {project.title}
-                  <Badge className="bg-portfolio-purple hover:bg-portfolio-lightPurple">
-                    {project.category}
-                  </Badge>
-                </CardTitle>
-                <CardDescription className="text-gray-600">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
+
+              <div className="project-info bg-white dark:bg-gray-900 p-6">
+                <div className="flex-pr justify-between mb-2">
+                  <div className="project-title text-xl font-bold text-white">
+                    {project.title}
+                  </div>
+                  <div className="project-hover text-portfolio-blue">
+                    <ArrowUpRight size={18} />
+                  </div>
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{project.description}</p>
+                <div className="types flex flex-wrap gap-2">
+                  <span className="project-type bg-gray-200 text-gray-700 px-2 py-1 text-xs rounded">{project.category}</span>
                   {project.tags.map((tag) => (
-                    <Badge key={tag} variant="outline" className="text-xs border-portfolio-blue text-portfolio-blue">
-                      {tag}
-                    </Badge>
+                    <span key={tag} className="project-type bg-gray-100 text-gray-500 px-2 py-1 text-xs rounded">{tag}</span>
                   ))}
                 </div>
-              </CardContent>
-              <CardFooter className="flex justify-between">
+              </div>
+
+              <div className="flex justify-between p-4 bg-white dark:bg-gray-900 rounded-b-md">
                 <Button asChild variant="ghost" className="text-gray-500 hover:text-portfolio-purple">
                   <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                     <Github size={18} className="mr-2" />
                     Code
                   </a>
                 </Button>
-                <Button asChild className="bg-portfolio-blue hover:bg-portfolio-darkBlue">
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <Button asChild className="bg-portfolio-blue hover:bg-portfolio-darkBlue text-white">
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center px-4 py-2 rounded-md text-[#ffffff] bg-[#111111] hover:bg-[#111111] hover:text-white transition-colors duration-300"
+                  >
                     <Globe size={18} className="mr-2" />
                     Live Demo
                     <ArrowUpRight size={14} className="ml-1" />
                   </a>
                 </Button>
-              </CardFooter>
-            </Card>
+              </div>
+            </article>
           ))}
         </div>
       </div>

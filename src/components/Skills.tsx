@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Code2, Database, Layout, Server, Settings } from 'lucide-react';
 
@@ -54,9 +53,10 @@ const skillsCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-[#09090F]">
       <div className="section-container">
-        <h2 className="section-title">My Skills</h2>
+      <h2 className="section-title text-white text-4xl md:text-5xl font-bold">My Skills</h2>
+
         
         <div className="flex items-center justify-center mb-12 opacity-0 animate-fade-in [animation-delay:200ms]">
           <div className="p-4 bg-gradient-to-r from-portfolio-blue to-portfolio-purple rounded-full">
@@ -68,24 +68,24 @@ const Skills = () => {
           {skillsCategories.map((category, categoryIndex) => (
             <div 
               key={category.name} 
-              className="bg-white rounded-lg p-6 shadow-md border border-gray-100 opacity-0 animate-fade-in"
+              className="bg-[#1f1f23] rounded-lg p-6 shadow-md border border-gray-700 opacity-0 animate-fade-in"
               style={{ animationDelay: `${categoryIndex * 200 + 400}ms` }}
             >
               <div className="flex items-center mb-6">
                 <div className="mr-4">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-bold">{category.name}</h3>
+                <h3 className="text-xl font-bold text-white">{category.name}</h3>
               </div>
               
               <div className="space-y-5">
                 {category.skills.map((skill, index) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-1">
-                      <span className="font-medium text-gray-700">{skill.name}</span>
-                      <span className="text-sm text-gray-500">{skill.level}%</span>
+                      <span className="font-medium text-gray-200">{skill.name}</span>
+                      <span className="text-sm text-gray-400">{skill.level}%</span>
                     </div>
-                    <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                    <div className="h-2 w-full bg-gray-600 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-gradient-to-r from-portfolio-blue to-portfolio-purple"
                         style={{ 

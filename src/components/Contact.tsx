@@ -13,17 +13,18 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-[#09090F]">
       <div className="section-container">
-        <h2 className="section-title">Get In Touch</h2>
+      <h2 className="section-title text-white text-4xl md:text-5xl font-bold">Contact</h2>
+
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
           {/* Contact Information */}
           <div className="space-y-6 opacity-0 animate-fade-in [animation-delay:200ms]">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
+            <h3 className="text-2xl font-bold text-gray-300 mb-6">
               Let's talk about your project
             </h3>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-300 mb-8">
               I'm interested in freelance opportunities – especially ambitious
               or large projects. However, if you have other requests or
               questions, don't hesitate to use the form.
@@ -36,7 +37,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800">Location</h4>
-                  <p className="text-gray-600">San Francisco, CA</p>
+                  <p className="text-gray-600">Ulaanbaator</p>
                 </div>
               </div>
 
@@ -46,7 +47,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800">Email</h4>
-                  <p className="text-portfolio-blue">john.doe@example.com</p>
+                  <p className="text-portfolio-blue">Zolo@gmail.com</p>
                 </div>
               </div>
 
@@ -56,7 +57,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800">Phone</h4>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="text-gray-600">+976 99119911 </p>
                 </div>
               </div>
             </div>
@@ -76,7 +77,7 @@ const Contact = () => {
                   <Input
                     id="name"
                     type="text"
-                    placeholder="Duudu"
+                    placeholder="Zolo"
                     required
                     className="border-gray-300 focus:border-portfolio-blue focus:ring-portfolio-blue/20"
                   />
@@ -91,7 +92,7 @@ const Contact = () => {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="Zolo@example.com"
                     required
                     className="border-gray-300 focus:border-portfolio-blue focus:ring-portfolio-blue/20"
                   />
@@ -130,12 +131,13 @@ const Contact = () => {
               </div>
 
               <Button
-                type="submit"
-                className="w-full bg-portfolio-blue hover:bg-portfolio-darkBlue flex items-center justify-center gap-2"
-              >
-                <Send size={16} />
-                Send Message
-              </Button>
+  type="submit"
+  className="w-full bg-black hover:bg-gray-800 text-white flex items-center justify-center gap-2"
+>
+  <Send size={16} />
+  Send Message
+</Button>
+
             </form>
           </Card>
         </div>
