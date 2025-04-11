@@ -20,7 +20,8 @@ const About = () => {
     <div className="cube">
       <div className="face front">
         <img 
-          src="src/photo/Screenshot_20241114_110328_Instagram (1).jpg" 
+          src="https://scontent.fuln5-1.fna.fbcdn.net/v/t1.15752-9/488579114_1953681058723650_1663883666896735980_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_ohc=ABZDxyiiHioQ7kNvwHGmhR6&_nc_oc=AdluRu-Kitc7Y5QSoa8J5pUo5nBZNgq-hfj1l90FoiNJgeK3nyUIN-2LXPsYPHoTUxg&_nc_zt=23&_nc_ht=scontent.fuln5-1.fna&oh=03_Q7cD2AFwo742-Z_hGUV7_TQciXAHPgZClRGQjJLOBdVhMsu9LQ&oe=68203117" 
+
           alt="Front Image" 
           className="w-full h-full object-cover rounded" 
         />
@@ -28,7 +29,7 @@ const About = () => {
 
       <div className="face back">
         <img 
-          src="src/photo/received_27330686426515629.jpeg" 
+          src="https://scontent.fuln5-1.fna.fbcdn.net/v/t1.15752-9/487982364_668887572455703_861098510272904804_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_ohc=oBIpp3QkTKAQ7kNvwEFQvpd&_nc_oc=Adkc3A4l1nvU5LrtDlypKbmsQtR5Y3ykmTaf1Jt2y6RT-i8AsYqqpOsJJf1aKV1VpAI&_nc_zt=23&_nc_ht=scontent.fuln5-1.fna&oh=03_Q7cD2AFhJwu6-5CJdiLa5ZiqtDQZg7c2dj2-fJ9UdxQZWpysqw&oe=682031C9" 
           alt="Back" 
           className="w-full h-full object-cover rounded" 
         />
@@ -49,7 +50,7 @@ const About = () => {
 
       <div className="face bottom">
         <img 
-          src="src/photo/Screenshot_20241114_110257_Gallery.jpg" 
+          src="https://scontent.fuln5-1.fna.fbcdn.net/v/t1.15752-9/482147929_2481651648847613_6052779809301187478_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_ohc=2WLYRPPJ9zQQ7kNvwFyitrB&_nc_oc=AdlQCb1qweYJe7OfGs6Yeky3Mw9X3hzBzpBuAuLomyeXuD_FjDs7hNSgMk9KO2V17fw&_nc_zt=23&_nc_ht=scontent.fuln5-1.fna&oh=03_Q7cD2AEFAgD0RUrcc008m4T6K_xDMHGRVmfkfYp7V5eBCBtBgQ&oe=682037F2" 
           alt="Bottom" 
           className="w-full h-full object-cover rounded" 
         />
