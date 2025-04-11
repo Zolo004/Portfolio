@@ -143,7 +143,7 @@ const Projects = () => {
                     Code
                   </a>
                 </Button>
-                <Button asChild className="bg-portfolio-blue hover:bg-portfolio-darkBlue text-white">
+                <Button asChild className="bg-portfolio-dark hover:bg-portfolio-darkBlue text-white">
                   <a
                     href={project.liveUrl}
                     target="_blank"
